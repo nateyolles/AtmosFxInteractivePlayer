@@ -5,60 +5,83 @@ const config = require('./config.json')
 const app = express()
 const port = 3000
 
-const player = new Player(config.bufferVideoPath, {
+const backgroundPlayer = new Player(config.bufferVideoPath, {
   audioOutput: config.audioOutput,
   loop: true,
   layer: 0
 });
 
-let player2 = null;
+const weightConfig = config.randomVideoPaths.filter(configObj => !configObj.skip).map(configObj => {
+  return {[configObj.path]: configObj.weight};
+});
 
-app.get('/play/:id', (req, res) => {
-  const id = req.params.id;
+let foregroundPlayer = null;
+let timer = null;
 
-  if (!player2) {
-    console.log('new player2');
-    player2 = new Player(config.interactiveVideoPaths[id], {
+const getRandomVideo = () => {
+  const randomResult = weighted.select(weightConfig);
+  console.log(`Randome Result: ${randomResult}`);
+  return Object.keys(randomResult)[0];
+}
+
+const playRandomVideo = () => {
+  timer = setTimeout(() => { playVideo(getRandomVideo()); }, config.randomInterval);
+}
+
+const playVideo = (path) => {
+  if (!foregroundPlayer) {
+    console.log(`new foregroundPlayer: ${path}`);
+
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    foregroundPlayer = new Player(path, {
       audioOutput: config.audioOutput,
       loop: false,
       layer: 2,
     });
-    player2.open().then((result) => {
-      console.log('player pause');	
-      player.pause();
+
+    foregroundPlayer.open().then((result) => {
+      console.log('backgroundPlayer pause');
+      backgroundPlayer.pause();
     });
-    player2.on('progress', (progress) => {
+
+    foregroundPlayer.on('progress', (progress) => {
       if (progress.progress >= .95) {
-	console.log('player resume', progress.progress);
-        player.resume();
+        console.log('backgroundPlayer resume', progress.progress);
+        backgroundPlayer.resume();
       }
     });
-    player2.on('close', () => {
-      console.log('player 2 close');
-      player2 = null;
+
+    foregroundPlayer.on('close', () => {
+      console.log('foregroundPlayer close');
+      foregroundPlayer = null;
+      playRandomVideo();
     });
   }
-  res.send(`Playing: ${id}`);
-})
+}
 
-app.get('/test/:scene/:id', (req, res) => {
-  const scene = req.params.scene;
+app.get('/play/:id', (req, res) => {
   const id = req.params.id;
-  res.send(`Scene: ${scene}, ID: ${id}`);
+  playVideo(config.interactiveVideoPaths[id]);
+  res.send(`Playing ${id}`);
 })
 
 app.get('/stop', (req, res) => {
-  player2?.stop();
-  player2 = null;
-  res.send('stopping');
+  foregroundPlayer?.stop();
+  foregroundPlayer = null;
+  res.send('Stopping foregroundPlayer');
 })
 
 app.get('/start', (req, res) => {
-  player.open();
+  backgroundPlayer.open();
+  playRandomVideo();
   res.send('starting');
+
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`AtmosFxInteractivePlayer listening at http://localhost:${port}`)
 })
-

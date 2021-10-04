@@ -1,6 +1,6 @@
 {
   "audioOutput": "hdmi",
-  "randomInterval": 120000,
+  "randomInterval": 10000,
   "bufferVideoPath" : "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Extra Buffer Files/JOLJ3_Buffer_Trio_Pumpkin.mp4",
   "interactiveVideoPaths": [
     "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Stories/Trio/JOLJ_Three Children Bold_Trio_Pumpkin.mp4",

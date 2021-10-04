@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "description": "The AtmosFX Interactive Player creates seamless, gapless, user-controllable video player for AtmosFX videos.",
   "main": "app.js",
+  "cpu": [
+    "arm"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "nateyolles@gmail.com",
+  "author": {
+    "name": "Nate Yolles",
+    "email": "nateyolles@gmail.com",
+    "url": "http://www.nateyolles.com"
+  },
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

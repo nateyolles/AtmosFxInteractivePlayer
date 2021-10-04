@@ -1,0 +1,139 @@
+{
+  "audioOutput": "hdmi",
+  "randomInterval": 120000,
+  "bufferVideoPath" : "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Extra Buffer Files/JOLJ3_Buffer_Trio_Pumpkin.mp4",
+  "interactiveVideoPaths": [
+    "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Stories/Trio/JOLJ_Three Children Bold_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Stories/Trio/JOLJ_Twas The Night_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Songs/Trio/JOLJ_Hall of Pumpkin King_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Songs/Trio/JOLJ_The Pumpkin Song_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_Lord of the Gourds_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_The Raven_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Hobnobbin Goblins_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Ode to Halloween_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Welcome To Our Haunt_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Witching Hour_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Addams Family_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Ghostbusters_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Monster Mash_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 3 - Spooky Tales - Pumpkin/Trio/JOLJ3_Haunted Houses_Trio_Pumpkin.mp4",
+    "../videos/Jack-O-Lantern Jamboree 3 - Spooky Tales - Pumpkin/Trio/JOLJ3_Sleepy Hollow_Trio_Pumpkin.mp4"
+  ],
+  "randomVideoPaths": [
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Stories/Trio/JOLJ_Three Children Bold_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Stories/Trio/JOLJ_Twas The Night_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Songs/Trio/JOLJ_Hall of Pumpkin King_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Songs/Trio/JOLJ_The Pumpkin Song_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Jokes/Trio/JOLJ_Jokes 1_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Jokes/Trio/JOLJ_Jokes 2_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Jokes/Trio/JOLJ_Jokes 3_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree - Pumpkin Mode - Funny Faces/Trio/JOLJ_Funny Faces_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Scares - Pumpkin/Trio/JOL2_Alternating Scares_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Scares - Pumpkin/Trio/JOL2_Scaring Each Other_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Scares - Pumpkin/Trio/JOL2_Scaring in Unison_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Hobnobbin Goblins_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Ode to Halloween_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Welcome To Our Haunt_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Pumpkin Songs - Pumpkin/Trio/JOL2_Witching Hour_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_Heckling Hijinks_Trio_Pumpkin.mp4",
+      "weight": 0.2,
+      "skip": true
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_Lord of the Gourds_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_The Raven_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 2 - Tales and Treats - Pumpkin/Trio/JOL2_Treater Greeters_Trio_Pumpkin.mp4",
+      "weight": 0.2,
+      "skip": true
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Addams Family_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Ghostbusters_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Trio/JOLJ3_Monster Mash_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Silly Tales - Pumpkin/Trio/JOLJ3_Halloween is So Much Fun_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Silly Tales - Pumpkin/Trio/JOLJ3_Halloween Limericks_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Silly Tales - Pumpkin/Trio/JOLJ3_Its Halloween Tonight_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Silly Tales - Pumpkin/Trio/JOLJ3_Itsy Bitsy Critters_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Spooky Tales - Pumpkin/Trio/JOLJ3_Haunted Houses_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    },
+    {
+      "path": "../videos/Jack-O-Lantern Jamboree 3 - Spooky Tales - Pumpkin/Trio/JOLJ3_Sleepy Hollow_Trio_Pumpkin.mp4",
+      "weight": 0.2
+    }
+  ]
+}
+

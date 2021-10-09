@@ -9,8 +9,10 @@ This player is meant to provide interaction with AtmosFX media. The media requir
 
 ### Install pigpio C library
 
-```sudo apt-get update
-sudo apt-get install pigpio```
+```
+sudo apt-get update
+sudo apt-get install pigpio
+```
 
 See [https://github.com/fivdi/pigpio#installation](https://github.com/fivdi/pigpio#installation)
 
@@ -22,16 +24,22 @@ See: [https://github.com/RandomStudio/omxconductor#readme](https://github.com/Ra
 
 ### Install OMXPlayer
 
-```sudo apt-get install omxplayer```
+```
+sudo apt-get install omxplayer
+```
 
 See [https://github.com/popcornmix/omxplayer#readme](https://github.com/popcornmix/omxplayer#readme)
 
 ### Install NPM Dependencies
 
-```npm install```
+```
+npm install
+```
 
 ## Run
 
 With root permissions, run:
 
-```node app.js```
+```
+node app.js
+```

@@ -18,6 +18,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "omxconductor": "^2.4.0",
+    "pigpio": "^3.3.1",
+    "rpi-ws281x": "^1.0.36",
     "weighted": "^0.3.0"
   }
 }

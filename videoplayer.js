@@ -3,15 +3,21 @@ const weighted = require('weighted');
 const config = require('./config.json');
 
 module.exports = class VideoPlayer {
-    constructor() {
+    constructor(leds) {
         console.log('init player');
 
+        this.leds = leds;
         this.foregroundPlayer = null;
         this.timer = null;
+        this.waitTimer = null;
+        this.waitIndex = 0;
+        this.randomPathHistory = [];
 
         this.weightConfig = config.videos.filter(video => !video.random?.skip).map(video => {
             return {[video.path]: video.random.weight};
         });
+
+        this.ledSections = config.videos.filter(video => video.leds?.start && video.leds?.end);
 
         this.backgroundPlayer = new Player(config.bufferVideoPath, {
             audioOutput: config.audioOutput,
@@ -29,6 +35,7 @@ module.exports = class VideoPlayer {
             console.error('Error on backgroundPlayer', err);
         });
 
+        this.wait();
         this.playRandomVideo();
     };
 
@@ -39,9 +46,25 @@ module.exports = class VideoPlayer {
     };
 
     getRandomVideo = () => {
-        const randomResult = weighted.select(this.weightConfig);
-        const path = Object.keys(randomResult)[0];
+        let randomResult;
+        let path;
+
+        do {
+            randomResult = weighted.select(this.weightConfig);
+            path = Object.keys(randomResult)[0];
+            console.log('Preliminary random path', path);
+            console.log ('History', this.randomPathHistory);
+        } while (this.randomPathHistory.includes(path));
+
         console.log('Random path', path);
+
+        if (this.randomPathHistory.length === config.randomHistory) {
+            this.randomPathHistory.shift();
+        }
+        this.randomPathHistory.push(path);
+
+        console.log('Random History with new path', this.randomPathHistory);
+
         return config.videos.find(element => {
             return element.path === path;
         });
@@ -58,6 +81,8 @@ module.exports = class VideoPlayer {
                 this.timer = null;
             }
 
+            this.stopWait();
+
             this.foregroundPlayer = new Player(path, {
                 audioOutput: config.audioOutput,
                 loop: false,
@@ -68,7 +93,7 @@ module.exports = class VideoPlayer {
                 console.log('BackgroundPlayer pause');
                 this.backgroundPlayer.pause();
                 if (video.leds?.start && video.leds?.end) {
-                    //leds.turnOn(0, 255, 0, video.leds.start, video.leds.end);
+                    this.leds.turnOn(0, 255, 0, video.leds.start, video.leds.end);
                 }
             }).catch((err) => {
                 console.error('Error on open foreground player:', err);
@@ -85,7 +110,8 @@ module.exports = class VideoPlayer {
                 console.log('ForegroundPlayer close');
                 this.foregroundPlayer = null;
                 this.playRandomVideo();
-                //leds.turnOffAll();
+                this.leds.turnOffAll();
+                this.wait();
             });
 
             this.foregroundPlayer.on('error', (err) => {
@@ -106,5 +132,24 @@ module.exports = class VideoPlayer {
         this.backgroundPlayer = null;
         this.foregroundPlayer?.stop();
         this.foregroundPlayer = null;
+        this.stopWait();
+    };
+
+    wait = () => {
+        console.log('start wait');
+        this.waitTimer = setInterval(() => {
+            const ledSection = this.ledSections[this.waitIndex].leds;
+            this.leds.turnOffAll();
+            this.leds.turnOn(255,255,255, ledSection.start, ledSection.end);
+            this.waitIndex = this.waitIndex >= this.ledSections.length - 1 ? 0 : this.waitIndex + 1;
+        }, config.leds.waitInterval);
+    };
+
+    stopWait = () => {
+        if (this.waitTimer) {
+            clearInterval(this.waitTimer);
+            this.waitTimer = null;
+            this.leds.turnOffAll();
+        }
     };
 };

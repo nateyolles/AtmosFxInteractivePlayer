@@ -1,37 +1,37 @@
-const pigpio = require('pigpio');
+//const pigpio = require('pigpio');
 const config = require('./config.json');
-const Button = require('./button');
+//const Button = require('./button');
 const Leds = require('./leds');
 const VideoPlayer = require('./videoplayer');
 const WebServer = require('./webserver');
 
 // Initialize pigpio C library
-pigpio.initialize();
+//pigpio.initialize();
 
-const videoPlayer = new VideoPlayer();
 const leds = new Leds();
+const videoPlayer = new VideoPlayer(leds);
 const webServer = new WebServer(videoPlayer);
 
-const stopButton = new Button(config.stopGpio, () => {
-    console.log('Stop button pressed');
-    videoPlayer.stopVideo();
-});
+// const stopButton = new Button(config.stopGpio, () => {
+//     console.log('Stop button pressed');
+//     videoPlayer.stopVideo();
+// });
 
-config.videos.forEach((video) => {
-    const gpio = video.gpio;
-    if (gpio) {
-        new Button(gpio, () => {
-            console.log(`button ${gpio} pressed callback`);
-            videoPlayer.playVideo(video);
-        });
-    }
-});
+// config.videos.forEach((video) => {
+//     const gpio = video.gpio;
+//     if (gpio) {
+//         new Button(gpio, () => {
+//             console.log(`button ${gpio} pressed callback`);
+//             videoPlayer.playVideo(video);
+//         });
+//     }
+// });
 
 const exit = () => {
     leds.turnOffAll();
     videoPlayer.close();
     // Terminate pigpio C library
-    pigpio.terminate();
+    //pigpio.terminate();
 };
 
 // ctl+c

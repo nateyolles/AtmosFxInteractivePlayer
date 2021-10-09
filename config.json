@@ -1,6 +1,7 @@
 {
   "audioOutput": "hdmi",
-  "randomInterval": 10000,
+  "randomInterval": 300,
+  "randomHistory": 5,
   "stopGpio": 21,
   "portNumber": 3000,
   "leds": {
@@ -8,7 +9,8 @@
     "dma": 10,
     "brightness": 125,
     "gpio": 18,
-    "stripType": "grb"
+    "stripType": "grb",
+    "waitInterval": 1000
   },
   "bufferVideoPath" : "../videos/Jack-O-Lantern Jamboree 3 - Halloween Hits - Pumpkin/Extra Buffer Files/JOLJ3_Buffer_Trio_Pumpkin.mp4",
   "videos": [

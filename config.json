@@ -2,6 +2,7 @@
   "audioOutput": "hdmi",
   "randomInterval": 10000,
   "stopGpio": 21,
+  "portNumber": 3000,
   "leds": {
     "count": 30,
     "dma": 10,

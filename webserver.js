@@ -5,10 +5,10 @@ const port = config.portNumber || 3000;
 
 module.exports = class WebServer {
     constructor(videoPlayer) {
-        app.get('/play/:id', (req, res) => {
+        app.get('/queue/:id', (req, res) => {
             const id = req.params.id;
-            videoPlayer.playVideo(config.videos[id]);
-            res.send(`Playing ${id} - ${config.videos[id].path}`);
+            videoPlayer.queueVideo(config.videos[id]);
+            res.send(`Queueing ${config.videos[id].path}`);
         });
 
         app.get('/stop', (req, res) => {

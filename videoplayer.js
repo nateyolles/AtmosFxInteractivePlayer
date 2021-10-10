@@ -12,6 +12,7 @@ module.exports = class VideoPlayer {
         this.waitTimer = null;
         this.waitIndex = 0;
         this.randomPathHistory = [];
+        this.queuedVideo = null;
 
         this.weightConfig = config.videos.filter(video => !video.random?.skip).map(video => {
             return {[video.path]: video.random.weight};
@@ -41,7 +42,8 @@ module.exports = class VideoPlayer {
 
     playRandomVideo = () => {
         this.timer = setTimeout(() => {
-            this.playVideo(this.getRandomVideo());
+            this.playVideo(this.queuedVideo || this.getRandomVideo());
+            this.queuedVideo = null;
         }, config.randomInterval);
     };
 
@@ -68,6 +70,10 @@ module.exports = class VideoPlayer {
         return config.videos.find(element => {
             return element.path === path;
         });
+    };
+
+    queueVideo = (video) => {
+        this.queuedVideo = video;
     };
 
     playVideo = (video) => {

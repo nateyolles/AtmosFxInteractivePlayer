@@ -12,9 +12,19 @@ const leds = new Leds();
 const videoPlayer = new VideoPlayer(leds);
 const webServer = new WebServer(videoPlayer);
 
-const stopButton = new Button(config.stopGpio, () => {
+new Button(config.stopGpio, () => {
     console.log('Stop button pressed');
     videoPlayer.stopVideo();
+});
+
+new Button(config.rebootGpio, () => {
+    console.log('Reboot button pressed');
+    shell.exec('sudo reboot -h now');
+});
+
+new Button(config.shutdownGpio, () => {
+    console.log('Shutdown button pressed');
+    shell.exec('sudo shutdown -h now');
 });
 
 config.videos.forEach((video) => {

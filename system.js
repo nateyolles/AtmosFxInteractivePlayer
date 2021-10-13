@@ -1,11 +1,17 @@
+const child_process = require('child_process');
+
 module.exports =  {
     reboot: () => {
         console.log('System Reboot');
-        shell.exec('sudo reboot -h now');
+        child_process.exec('sudo reboot -h now', (msg) => {
+            console.log(msg);
+        });
     },
 
     shutdown: () => {
         console.log('System Shutdown');
-        shell.exec('sudo shutdown -h now');
+        child_process.exec('sudo shutdown -h now', (msg) => {
+            console.log(msg);
+        });
     }
 };

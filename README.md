@@ -43,3 +43,40 @@ With root permissions, run:
 ```
 node app.js
 ```
+
+## Start on boot
+
+### Create Service
+
+Create a service by typing `sudo vim /lib/systemd/system/atmosfx.service`
+
+Paste the following code and update as necessary:
+```
+[Unit]
+Description=PiCounter
+After=network.target
+[Service]
+ExecStart=/usr/bin/bash /home/pi/AtmosFxInteractivePlayer/start.sh
+Restart=always
+User=pi
+[Install]
+WantedBy=multi-user.target
+```
+
+### Test Service
+
+```
+sudo systemctl start atmosfx.service
+```
+
+### Stop Service
+
+```
+sudo systemctl stop atmosfx.service
+```
+
+### Enable Service
+
+```
+sudo systemctl enable atmosfx.service
+```

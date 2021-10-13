@@ -1,5 +1,6 @@
 const pigpio = require('pigpio');
 const config = require('./config.json');
+const system = require('./system');
 const Button = require('./button');
 const Leds = require('./leds');
 const VideoPlayer = require('./videoplayer');
@@ -19,12 +20,12 @@ new Button(config.stopGpio, () => {
 
 new Button(config.rebootGpio, () => {
     console.log('Reboot button pressed');
-    shell.exec('sudo reboot -h now');
+    system.reboot();
 });
 
 new Button(config.shutdownGpio, () => {
     console.log('Shutdown button pressed');
-    shell.exec('sudo shutdown -h now');
+    system.shutdown();
 });
 
 config.videos.forEach((video) => {

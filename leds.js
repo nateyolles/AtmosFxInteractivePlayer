@@ -1,29 +1,6 @@
 const ws281x = require('rpi-ws281x');
 const config = require('./config.json');
 
-// module.exports =  {
-//     init: () => {
-//         ws281x.configure({
-//             leds: config.leds.count,
-//             dma: config.leds.dma,
-//             brightness: config.leds.brightness,
-//             gpio: config.leds.gpio,
-//             stripType: config.leds.stripType,
-//         });
-//     },
-
-//     /**
-//      * Get the color based on RGB values
-//      * @param {*} red 0-255
-//      * @param {*} green 0-255
-//      * @param {*} blue 0-255
-//      * @see https://github.com/meg768/rpi-ws281x/blob/master/README.md?plain=1#L86
-//      * @returns color code for pixels
-//      */
-//     getColor: (red = 0, green = 0, blue = 0) => {
-//         return (red << 16) | (green << 8)| blue;
-//     }
-// };
 module.exports = class Leds {
 
     constructor(settings) {
